@@ -2,7 +2,7 @@
 //  PdfViewer_SwiftUIApp.swift
 //  PdfViewer-SwiftUI
 //
-//  Created by Roro Solutions LLP on 31/12/23.
+//  Created by Gaurav Tak on 31/12/23.
 //
 
 import SwiftUI
