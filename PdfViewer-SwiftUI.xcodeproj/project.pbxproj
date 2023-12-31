@@ -14,6 +14,7 @@
 		939540882B41665A0027D177 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939540872B41665A0027D177 /* HomeView.swift */; };
 		9395408A2B416AB10027D177 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939540892B416AB10027D177 /* HomeViewModel.swift */; };
 		9395408D2B418FCA0027D177 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9395408C2B418FCA0027D177 /* PDFKit.framework */; };
+		939540902B41938B0027D177 /* PDFKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395408F2B41938B0027D177 /* PDFKitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		939540872B41665A0027D177 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		939540892B416AB10027D177 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9395408C2B418FCA0027D177 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
+		9395408F2B41938B0027D177 /* PDFKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		939540762B40C99E0027D177 /* PdfViewer-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				9395408E2B41935F0027D177 /* PdfViewer */,
 				939540862B41659E0027D177 /* UIs */,
 				939540772B40C99E0027D177 /* PdfViewer_SwiftUIApp.swift */,
 				939540792B40C99E0027D177 /* ContentView.swift */,
@@ -99,6 +102,14 @@
 				9395408C2B418FCA0027D177 /* PDFKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9395408E2B41935F0027D177 /* PdfViewer */ = {
+			isa = PBXGroup;
+			children = (
+				9395408F2B41938B0027D177 /* PDFKitView.swift */,
+			);
+			path = PdfViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 				939540882B41665A0027D177 /* HomeView.swift in Sources */,
 				9395407A2B40C99E0027D177 /* ContentView.swift in Sources */,
 				939540782B40C99E0027D177 /* PdfViewer_SwiftUIApp.swift in Sources */,
+				939540902B41938B0027D177 /* PDFKitView.swift in Sources */,
 				9395408A2B416AB10027D177 /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
