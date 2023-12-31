@@ -9,18 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "book")
-                .imageScale(.large)
-                .foregroundColor(.primary)
-            Text("Pdf Viewer")
-        }
-        .padding()
+        HomeView()
     }
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+#endif
