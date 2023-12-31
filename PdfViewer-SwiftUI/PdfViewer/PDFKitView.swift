@@ -11,8 +11,8 @@ struct PDFKitView: UIViewRepresentable {
     
     let pdfDocument: PDFDocument
     
-    init(showing pdfDoc: PDFDocument) {
-        self.pdfDocument = pdfDoc
+    init(pdfDocument: PDFDocument) {
+        self.pdfDocument = pdfDocument
     }
     
     //you could also have inits that take a URL or Data
@@ -31,9 +31,9 @@ struct PDFKitView: UIViewRepresentable {
 
 struct PDFUIView: View {
     
-    let pdfDoc: PDFDocument
+    let pdfDocument: PDFDocument
     
     var body: some View {
-        PDFKitView(showing: pdfDoc)
+        PDFKitView(pdfDocument: pdfDocument)
     }
 }

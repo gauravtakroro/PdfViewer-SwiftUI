@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PDFKit
 
 enum PdfViewType: Int {
     case savedPdfFileViewer = 1
@@ -18,7 +19,9 @@ protocol HomeViewModelProtocal: ObservableObject {
 }
 
 class HomeViewModel: HomeViewModelProtocal {
-    @Published var nextUiType: PdfViewType = .savedPdfFileViewer
+    var nextUiType: PdfViewType = .savedPdfFileViewer
     @Published var showNextUi: Bool = false
+    @Published var isShowProgressView: Bool = false
+    var pdfDocument = PDFDocument()
 }
 

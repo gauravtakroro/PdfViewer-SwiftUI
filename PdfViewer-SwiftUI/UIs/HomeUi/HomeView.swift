@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PDFKit
 
 struct HomeView : View {
     @StateObject var homeViewModel = HomeViewModel()
@@ -14,11 +15,12 @@ struct HomeView : View {
         print("buildView---called")
         // return you destination
         if homeViewModel.nextUiType == .savedPdfFileViewer {
-            return AnyView(Text("Saved pdf file viewer"))
+            return AnyView(PDFUIView(pdfDocument: homeViewModel.pdfDocument))
         } else if homeViewModel.nextUiType == .remotePdfFileViewer {
-            return AnyView(Text("Remote pdf file viewer"))
+            return AnyView(PDFUIView(pdfDocument: homeViewModel.pdfDocument))
         } else if homeViewModel.nextUiType == .checkLastPageVisitedOfPdfFile {
             return AnyView(Text("Check last page visited of pdf file viewer"))
+          //  AnyView(PDFUIView(pdfDocument: homeViewModel.pdfDocument))
         }    else {
             return AnyView(HomeView())
         }
@@ -26,7 +28,6 @@ struct HomeView : View {
     var body: some View {
         GeometryReader { proxy in
             NavigationView {
-                
                 ZStack(alignment: .top) {
                     if homeViewModel.showNextUi {
                         NavigationLink(destination: buildView(), isActive: $homeViewModel.showNextUi) {
@@ -42,6 +43,8 @@ struct HomeView : View {
                         }
                         
                         Button  {
+                            let url = Bundle.main.url(forResource: "sample", withExtension: "pdf")!
+                            homeViewModel.pdfDocument = PDFDocument(url: url)!
                             homeViewModel.nextUiType = .savedPdfFileViewer
                             homeViewModel.showNextUi = true
                         }  label: {
@@ -49,12 +52,25 @@ struct HomeView : View {
                         }
                         
                         Button  {
-                            homeViewModel.nextUiType = .remotePdfFileViewer
-                            homeViewModel.showNextUi = true
+                            homeViewModel.isShowProgressView = true
+                            let pdfUrlString = "https://www.mkgandhi.org/ebks/The Story of Gandhi.pdf"
+                            print("pdfUrlString.urlEncoded -- \(pdfUrlString.urlEncoded)")
+                            let url = URL(string: "https://www.africau.edu/images/default/sample.pdf")
+                            PDFDownloader.downloadPdf(pdfUrl: pdfUrlString.urlEncoded, completion: { data in
+                                homeViewModel.pdfDocument = PDFDocument(data: data)!
+                                DispatchQueue.main.async {
+                                    homeViewModel.isShowProgressView = false
+                                    self.homeViewModel.nextUiType = .remotePdfFileViewer
+                                    self.homeViewModel.showNextUi = true
+                                }
+                            })
+                           
                         }  label: {
                             Text("Show remote pdf using pdf viewer").font(.system(size: 20))
                         }
                         Button  {
+                            let url = Bundle.main.url(forResource: "Lipsum", withExtension: "pdf")!
+                            homeViewModel.pdfDocument = PDFDocument(url: url)!
                             homeViewModel.nextUiType = .checkLastPageVisitedOfPdfFile
                             homeViewModel.showNextUi = true
                         }  label: {
@@ -62,6 +78,7 @@ struct HomeView : View {
                         }
                        
                     }.padding()
+                    ProgressViewIndicator(shouldShow: $homeViewModel.isShowProgressView)
                 }
             }
         }
