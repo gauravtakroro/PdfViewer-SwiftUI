@@ -51,6 +51,7 @@
 		939540762B40C99E0027D177 /* PdfViewer-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				939540862B41659E0027D177 /* UIs */,
 				939540772B40C99E0027D177 /* PdfViewer_SwiftUIApp.swift */,
 				939540792B40C99E0027D177 /* ContentView.swift */,
 				9395407B2B40C99F0027D177 /* Assets.xcassets */,
@@ -65,6 +66,21 @@
 				9395407E2B40C99F0027D177 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		939540852B4165930027D177 /* HomeUi */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeUi;
+			sourceTree = "<group>";
+		};
+		939540862B41659E0027D177 /* UIs */ = {
+			isa = PBXGroup;
+			children = (
+				939540852B4165930027D177 /* HomeUi */,
+			);
+			path = UIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
